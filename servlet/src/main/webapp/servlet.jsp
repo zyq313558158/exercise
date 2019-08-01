@@ -8,10 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" isELIgnored="false" language="java" %>
 <html>
 <head>
-    <title>我是servlet</title>
+    <title>我是${servlet}</title>
 </head>
 <body>
-    <h3>我是ServletController</h3>
     <h3>我是${servlet} </h3>
 </body>
 </html>

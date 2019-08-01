@@ -4,12 +4,61 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+    <context-param>
+        <param-name>德玛</param-name>
+        <param-value>盖伦</param-value>
+    </context-param>
+    <context-param>
+        <param-name>轮子妈</param-name>
+        <param-value>战争女神</param-value>
+    </context-param>
   <servlet>
     <servlet-name>ServletController</servlet-name>
     <servlet-class>ServletController</servlet-class>
+      <init-param>
+          <param-name>zyq</param-name>
+          <param-value>2019</param-value>
+      </init-param>
+      <init-param>
+          <param-name>year</param-name>
+          <param-value>2019</param-value>
+      </init-param>
   </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletController</servlet-name>
-    <url-pattern>/servlet/ServletController</url-pattern>
-  </servlet-mapping>
+    <servlet>
+        <servlet-name>HttpServletController</servlet-name>
+        <servlet-class>HttpServletController</servlet-class>
+       <!-- <init-param>
+            <param-name>zyq</param-name>
+            <param-value>2019</param-value>
+        </init-param>-->
+        <init-param>
+            <param-name>year</param-name>
+            <param-value>2019</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>GenericServletController</servlet-name>
+        <servlet-class>GenericServletController</servlet-class>
+         <init-param>
+            <param-name>zyq</param-name>
+            <param-value>2019</param-value>
+        </init-param>
+        <init-param>
+            <param-name>year</param-name>
+            <param-value>2019</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ServletController</servlet-name>
+        <url-pattern>/servlet/ServletController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GenericServletController</servlet-name>
+        <url-pattern>/servlet/GenericServletController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HttpServletController</servlet-name>
+        <url-pattern>/servlet/HttpServletController</url-pattern>
+    </servlet-mapping>
 </web-app>
