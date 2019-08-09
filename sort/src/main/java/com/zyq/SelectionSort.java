@@ -2,6 +2,7 @@ package com.zyq;
 
 import java.util.Arrays;
 
+//选择排序---不稳定排序,可能无法保持相同数字的原有顺序,如{1,5,5,2}
 public class SelectionSort {
     public static void main(String[] args) {
         int[] arr = {5,9,6,5,56,1,0,33,999};
@@ -10,7 +11,7 @@ public class SelectionSort {
         System.out.println(Arrays.toString(arr));
     }
 
-    //选择排序
+
     public static int[] selectionSort(int[] arr){
         for (int i=0;i<arr.length;i++){
             int minIndex = i;
