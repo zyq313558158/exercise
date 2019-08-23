@@ -73,6 +73,26 @@
       <version>${org.springframework-version}</version>
     </dependency>
 
+
+    <!--这是由于Spring升级到4.X,jackson没有升级引起的问题.-->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.5.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>2.5.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>2.5.0</version>
+    </dependency>
+
+
+
   </dependencies>
 
   <build>

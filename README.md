@@ -20,3 +20,6 @@ https://blog.csdn.net/heroqiang/article/details/81539836
 
 SpringMVC 4.3 源码分析之 HandlerMapping
 https://www.jianshu.com/p/d4a7fdff0a06
+
+【Java 思维导图】 以思维导图打造 Java 核心知识体系：
+https://blog.csdn.net/Sirius_hly/article/details/94335233
