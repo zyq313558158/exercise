@@ -1,6 +1,6 @@
 package com.zyq.springbootdemo.controller;
 
-import com.zyq.springbootdemo.dao.User;
+import com.zyq.springbootdemo.domain.User;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,7 +12,7 @@ public class HelloWorldController {
     }
 
     @RequestMapping("/user")
-    public String getUser(){
-        return new User("张三",27).getName();
+    public User getUser(){
+        return new User("张三",27);
     }
 }
