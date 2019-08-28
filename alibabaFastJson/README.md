@@ -11,3 +11,6 @@ https://www.cnblogs.com/jajian/p/10051901.html
 
 Java 中 Gson的使用：
 https://www.cnblogs.com/qinxu/p/9504412.html
+
+Jackson，Gson，Fastjson 的对比：
+https://blog.csdn.net/qidasheng2012/article/details/82996405
