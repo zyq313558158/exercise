@@ -32,6 +32,7 @@ public class CertUtil {
     }
 
     public static void main(String[] args) throws CertificateException, IOException {
-        getX509CerCate("E:\\myjava\\github\\exercise\\MerCert\\src\\main\\resources\\test.cer");
+        //getX509CerCate("E:\\myjava\\github\\exercise\\MerCert\\src\\main\\resources\\test.cer");
+        getX509CerCate("C:\\Users\\Administrator\\Desktop\\NRRS\\各执收单位相关资料\\不动产\\生产证书\\zzbankCert.cer");
     }
 }
