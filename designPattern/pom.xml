@@ -26,6 +26,22 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/jep/jep -->
+    <dependency>
+      <groupId>jep</groupId>
+      <artifactId>jep</artifactId>
+      <version>2.24</version>
+    </dependency>
+
+      <!-- https://mvnrepository.com/artifact/com.bnd-lib/bnd-function-jep -->
+      <dependency>
+          <groupId>com.bnd-lib</groupId>
+          <artifactId>bnd-function-jep</artifactId>
+          <version>0.7.0</version>
+      </dependency>
+
+
   </dependencies>
 
   <build>
