@@ -35,4 +35,4 @@ Java设计模式学习：https://www.cnblogs.com/Young111/p/10690599.html
 	(11)解释器模式.
 	
 	
-	![](./1.jpg)
+![](./1.jpg)
