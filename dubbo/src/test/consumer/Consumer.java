@@ -1,3 +1,5 @@
+package consumer;
+
 import com.zyq.service.DemoService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

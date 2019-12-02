@@ -1,15 +1,17 @@
+package provider;
+
 import com.alibaba.dubbo.config.*;
 import com.alibaba.dubbo.rpc.service.GenericService;
 import com.ruim.ifsp.dubbo.DubboSoaGenericService;
 import com.zyq.service.DemoService;
+import com.zyq.service.DemolServiceOriginal;
 import com.zyq.service.imp.DemoServiceImpl;
 
 import java.io.IOException;
-import java.rmi.registry.Registry;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProviderOriginal1 {
+public class ProviderOriginal2 {
     public static void main(String[] args) throws IOException {
 
         DemoService demoService = new DemoServiceImpl();
@@ -22,14 +24,13 @@ public class ProviderOriginal1 {
 
         List<ProtocolConfig> protocolConfigs = new ArrayList<>();
         ProtocolConfig protocolConfig = new ProtocolConfig();
-       // protocolConfig.setId("Protocol_DubboOriginal");
         protocolConfig.setId("Protocol_DubboOriginal");
         protocolConfig.setName("dubbo");
         protocolConfig.setPort(20881);
         protocolConfigs.add(protocolConfig);
 
         ApplicationConfig applicationConfig = new ApplicationConfig();
-        applicationConfig.setName("ProviderOriginal1");
+        applicationConfig.setName("provider.ProviderOriginal1");
 
         ProviderConfig providerConfig = new ProviderConfig();
         providerConfig.setApplication(applicationConfig);
@@ -37,20 +38,18 @@ public class ProviderOriginal1 {
         providerConfig.setProtocols(protocolConfigs);
         providerConfig.setTimeout(3000);
 
-        MethodConfig methodConfig1 = new MethodConfig();
-        methodConfig1.setName("zhang3");
-        MethodConfig methodConfig2 = new MethodConfig();
-        methodConfig2.setName("li4");
+        //MethodConfig methodConfig1 = new MethodConfig();
+       // methodConfig1.setName("zhang3");
+        //MethodConfig methodConfig2 = new MethodConfig();
+        //methodConfig2.setName("li4");
         //List<MethodConfig> methodConfigs = new ArrayList<>();
         //methodConfigs.add(methodConfig1);
        // methodConfigs.add(methodConfig2);
 
-        //ServiceConfig<GenericService> serviceConfig = new ServiceConfig<>();
-        ServiceConfig<DemoService> serviceConfig = new ServiceConfig<>();
-        //serviceConfig.setInterface("zyq");
-        serviceConfig.setInterface(DemoService.class);
-        DubboSoaGenericService genericService = new DubboSoaGenericService();
-        serviceConfig.setRef(demoService);
+        ServiceConfig<GenericService> serviceConfig = new ServiceConfig<>();
+        serviceConfig.setInterface("zyq");
+        DemolServiceOriginal genericService = new DemolServiceOriginal();
+        serviceConfig.setRef(genericService);
         serviceConfig.setProvider(providerConfig);
         //serviceConfig.setMethods(methodConfigs);
 

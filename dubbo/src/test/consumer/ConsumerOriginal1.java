@@ -1,15 +1,16 @@
+package consumer;
+
 import com.alibaba.dubbo.config.ApplicationConfig;
 import com.alibaba.dubbo.config.ConsumerConfig;
 import com.alibaba.dubbo.config.ReferenceConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
-import com.alibaba.dubbo.rpc.service.GenericService;
 import com.zyq.service.DemoService;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConsumerOriginal2 {
+public class ConsumerOriginal1 {
     public static void main(String[] args) throws IOException {
         RegistryConfig registryConfig = new RegistryConfig();
         registryConfig.setId("Registry_ConsumerOriginal");
@@ -18,7 +19,7 @@ public class ConsumerOriginal2 {
         registryConfigs.add(registryConfig);
 
         ApplicationConfig applicationConfig = new ApplicationConfig();
-        applicationConfig.setName("ConsumerOriginal1");
+        applicationConfig.setName("consumer.ConsumerOriginal1");
 
 
         ConsumerConfig consumerConfig = new ConsumerConfig();
@@ -26,15 +27,14 @@ public class ConsumerOriginal2 {
         consumerConfig.setRegistries(registryConfigs);
         consumerConfig.setCheck(false);
 
-        ReferenceConfig<GenericService> referenceConfig = new ReferenceConfig<>();
-        referenceConfig.setInterface("zyq");
+        ReferenceConfig<DemoService> referenceConfig = new ReferenceConfig<>();
+        referenceConfig.setInterface(DemoService.class);
         referenceConfig.setConsumer(consumerConfig);
         referenceConfig.setGeneric(true);
-        referenceConfig.get();
-        GenericService genericService = referenceConfig.get();
 
-        String string = (String) genericService.$invoke("zyq",new String[]{"",""},new Object[]{});
-        System.out.println(string);
+        //DemoService demoService = referenceConfig.get();
+        //System.out.println(demoService.sayHelle("haha"));
+
         System.in.read();
     }
 }
