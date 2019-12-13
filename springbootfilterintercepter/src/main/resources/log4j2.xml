@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="60">
+    <Properties>
+        <!-- 配置日志文件输出目录(项目个目录) -->
+        <property name="LOG_HOME">./logs/backstage</property>
+        <Property name="TRACE_FILE_NAME">trace</Property>
+        <Property name="DEBUG_FILE_NAME">debug</Property>
+        <Property name="INFO_FILE_NAME">info</Property>
+        <Property name="WARN_FILE_NAME">warn</Property>
+        <Property name="ERROR_FILE_NAME">error</Property>
+    </Properties>
+    <!-- 定义Appender -->
+    <Appenders>
+        <!-- 这个输出控制台的配置 -->
+        <Console name="CONSOLE_OUT_APPENDER" target="SYSTEM_OUT">
+            <!-- 控制台只输出level及以上级别的信息(onMatch),其他的直接拒绝(onMismatch) -->
+            <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+            <!-- 输出日志的格式 -->
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %class{36} %L %M - %msg%xEx%n"/>
+        </Console>
+        <!-- 这个输出控制台的配置，这里输出error级别的信息到 System.err，在IDE控制台上看到的是红色文字 -->
+        <Console name="CONSOLE_ERROR_APPENDER" target="SYSTEM_ERR">
+            <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY" />
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level[%thread] %class{36} %L %M - %msg%xEx%n" />
+        </Console>
+        <!-- DEBUG级别日志 -->
+        <RollingFile name="INFO_APPENDER"
+                     immediateFlush="TRUE"
+                     fileName="${LOG_HOME}/${DEBUG_FILE_NAME}.log"
+                     filePattern="${LOG_HOME}/$${date:yyyy-MM}/${DEBUG_FILE_NAME}-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout
+                    pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n" />
+            <!-- 每个日志文件最大10MB -->
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10MB" />
+            </Policies>
+            <!-- 用来指定同一个文件夹下最多有几个日志文件时开始删除最旧的，创建新的(通过max属性) -->
+            <DefaultRolloverStrategy max="100" />
+            <!-- 此Filter意思是，只输出INFO级别的数据
+              DENY，日志将立即被抛弃不再经过其他过滤器；
+              NEUTRAL，有序列表里的下个过滤器过接着处理日志；
+              ACCEPT，日志会被立即处理，不再经过剩余过滤器 -->
+            <Filters>
+                <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL" />
+                <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY" />
+            </Filters>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <!-- 配置日志的根节点 -->
+        <Root level="TRACE">
+            <AppenderRef ref="CONSOLE_OUT_APPENDER" />
+            <AppenderRef ref="CONSOLE_ERROR_APPENDER" />
+            <!--<AppenderRef ref="TRACE_APPENDER" />-->
+            <!--<AppenderRef ref="DEBUG_APPENDER" />-->
+            <AppenderRef ref="INFO_APPENDER" />
+            <!--<AppenderRef ref="WARN_APPENDER" />-->
+            <!--<AppenderRef ref="ERROR_APPENDER" />-->
+        </Root>
+        <Logger name="org.springframework" level="INFO"/>
+        <!--<Logger name="org.apache.zookeeper" level="INFO"/>-->
+    </Loggers>
+</Configuration>
