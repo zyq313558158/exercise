@@ -1,6 +1,8 @@
 # exercise
 平时学习练习之用
 
+Spring Boot 2.+的默认连接池HikariCP详解：https://www.jianshu.com/p/7e4c0e9ad49a
+
 
 tomcat和weblogic下使用druid 驱动jndi：https://blog.csdn.net/qq_15541045/article/details/52315956
 
@@ -17,6 +19,13 @@ tomcat和weblogic下使用druid 驱动jndi：https://blog.csdn.net/qq_15541045/a
 	(2))context.xml中属性配置 factory=com.alibaba.druid.pool.DruidDataSourceFactory
 	(3)tomcat根目录/lib 下加入druid jar。
 
+	
+SpringBoot定时任务：https://www.jianshu.com/p/9e278b1059b6
+spring boot 几种定时任务的实现方式：https://www.jianshu.com/p/b6809b5a0c26
+玩转SpringBoot之定时任务详解：https://www.cnblogs.com/mmzs/p/10161936.html
+Quartz快速入门指南（.w3cschool.）：https://www.w3cschool.cn/quartz_doc/quartz_doc-67a52d1f.html
+	
+	
 关于定时任务：
 1.jdk自带的(使用很少);
 2.schedule spring的(默认单线程的，可以使用ThreadPoolTaskExecutor完成多线程):
