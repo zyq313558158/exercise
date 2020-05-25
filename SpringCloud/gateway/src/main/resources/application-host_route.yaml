@@ -1,0 +1,11 @@
+spring:
+  profiles: host_route
+
+#暂时模拟没有成功
+  cloud:
+    gateway:
+      routes:
+        - id: host_route
+          uri: http://localhost:8765/hi
+          predicates:
+          - Host=**.zyq.com

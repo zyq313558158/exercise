@@ -19,5 +19,8 @@ https://blog.csdn.net/baidu2030/article/details/92383629
 (三)zookeeper数据查看工具ZooInspector的使用(等于登录zookeeper服务端):
 Zookeeper数据查看工具ZooInspector:https://www.jianshu.com/p/f45af8027d7f
 
+3.consul作为注册中心
+官网下载,需配置环境变量,指向文件夹安装根目录即可；
+启动目录:consul agent -dev,默认启动端口8500
 
 

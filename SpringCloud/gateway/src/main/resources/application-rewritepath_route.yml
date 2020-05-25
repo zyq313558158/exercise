@@ -1,0 +1,13 @@
+spring:
+  profiles: rewritepath_route
+
+  #时间
+  cloud:
+    gateway:
+      routes:
+       - id: rewritepath_route
+         uri: http://localhost:8765
+         predicates :
+         - Path=/hello/**
+         filters:
+         - RewritePath=/hello/(?<segment>.*), /$\{segment}

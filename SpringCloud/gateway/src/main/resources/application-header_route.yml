@@ -1,0 +1,11 @@
+spring:
+  profiles: header_route
+
+#请求头
+  cloud:
+    gateway:
+      routes:
+        - id: header_route
+          uri: http://localhost:8765/hi
+          predicates :
+          - Header=X-Request-Id, \d+

@@ -1,0 +1,17 @@
+spring:
+  profiles: elapse_route
+
+  #自定义RequestTimeGatewayFilterFactory
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+       - id: elapse_route
+         uri: lb://SERVICE-FEIGN
+         filters:
+         - RequestTime=false
+         predicates:
+         - Path=/hi/**

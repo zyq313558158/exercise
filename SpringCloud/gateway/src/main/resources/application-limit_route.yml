@@ -1,0 +1,21 @@
+spring:
+  profiles: limit_route
+
+  cloud:
+    gateway:
+      routes:
+        - id: limit_route
+          uri: http://localhost:8765/hi
+          predicates:
+            - After=2020-01-20T17:42:47.789-07:00[America/Denver]
+          filters:
+            - name: RequestRateLimiter
+              ags:
+                key-resolver: '#{@uriKeyResolver}'
+                redis-rate-limiter.replenishRate: 1
+                redis-rate-limiter.burstCapacity: 1
+
+  redis:
+    host: localhost
+    port: 6379
+    database: 0

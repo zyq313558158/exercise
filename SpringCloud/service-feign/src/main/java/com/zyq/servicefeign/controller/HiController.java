@@ -2,10 +2,7 @@ package com.zyq.servicefeign.controller;
 
 import com.zyq.servicefeign.service.SchedualServiceHi;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Copyright (C), 2018-2019,
@@ -25,5 +22,11 @@ public class HiController {
     @RequestMapping(value = "hi",method = RequestMethod.GET)
     public String sayHi(@RequestParam String name){
         return schedualServiceHi.sayHiFromClientOne(name);
+    }
+
+    @PostMapping("/user/{name}")
+    public String addUser(@PathVariable String name){
+        System.out.println("增加用户: /user/"+name);
+        return schedualServiceHi.addUser(name);
     }
 }
